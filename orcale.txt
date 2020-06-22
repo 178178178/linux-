@@ -1,0 +1,8 @@
+create user root identified by root default tablespace USERS temporary tablespace TEMP;
+grant DBA to root;
+ALTER PROFILE DEFAULT LIMIT PASSWORD_LIFE_TIME UNLIMITED;
+
+imp root/root@payout fulll=y file=c:/xq.dmp fromuser=root touser=root ignore=y
+
+exp root/root@weixin owner=root file=c:\weixin.dmp
+exp root/root@quartz owner=root file=c:\quartz.dmp

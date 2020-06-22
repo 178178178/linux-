@@ -1,0 +1,21 @@
+一、拷贝一份redis.conf
+cp redis.conf redis6001.conf （此文件在 /etc 目录下 ）
+
+二、修改新库的配置
+pidfile : /var/run/redis_6380.pid  （默认的是6379改成不一样的就行）
+
+port 6001                                      （默认的是6379改成不一样的就行 我这边给到的新端口是 6001）
+
+dbfilename : dump6001.rdb                   （默认的是6379改成不一样的就行）
+
+三、开启新redis实例/库
+redis-server redis6001.conf     
+
+成功~ 根据不同的端口访问不同的实例/库
+
+作者：DCherry
+链接：https://www.jianshu.com/p/9acc00ac6016
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+清空：-p 6380

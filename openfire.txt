@@ -1,0 +1,13 @@
+下载地址：http://www.igniterealtime.org/downloads/index.jsp
+
+如果安装了java，就下载RPM (64bit JRE bundled) for Red Hat Linux and variants 或者 RPM (32bit JRE bundled) for Red Hat Linux and variants
+
+如果服务器上没有安装java，就下载RPM (no JRE bundled) for Red Hat Linux and variants
+#rpm -ivh openfire-3.10.3-1.i386.rpm   //安装，默认安装到/opt/openfire目录下
+
+5 . 在linux上启动oepnfire
+
+
+Usage /etc/init.d/openfire {start|stop|restart|status|condrestart|reload}
+
+http://blog.csdn.net/newjueqi/article/details/8001349

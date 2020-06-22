@@ -1,0 +1,19 @@
+pwd查看当前目录
+ls -lt 时间排序查看
+more 查看日志
+tail -f
+head 
+
+rmdir
+
+cp -a 文件 复制的文件中内容
+
+uptime 查询系统信息
+
+free -h 显示内存
+df -h 显示磁盘
+netstat -tnlp 查看端口使用情况
+查看程序占用端口：
+netstat -tnlp | grep java
+
+du -sm * -h

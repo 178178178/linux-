@@ -1,0 +1,12 @@
+vi etc/resolv.conf，打开这个文件，Enter键进入到编辑，
+
+使用vi进入文本后，按i开始编辑文
+
+退出编辑模式 
+　　按ESC键，然后：
+　　　　退出vi
+　　　:q!强行退出（不存盘）
+　　　 :w   保存文件，不退出vi命令
+　　　 :wq  保存文件，退出vi命令
+
+:set number 或者 :set nu 显示行号

@@ -1,0 +1,65 @@
+https://www.cnblogs.com/guoxiangyue/p/9254259.html
+
+# killall svnserve      #停止
+
+# svnserve -d -r /opt/svn    #启动
+
+端口3690
+
+rpm -qa | grep subversion  
+
+如果已安装SVN，则会返回版本信息。这时需要卸载旧版本的SVN。
+
+卸载旧版本SVN
+
+# yum remove subversion  
+
+2、安装SVN
+
+# yum install subversion  
+
+3、检查安装是否成功
+
+#  svnserve --version  
+
+4、代码库创建
+
+#  mkdir -p /opt/svn/payout 
+
+# svnadmin create /opt/svn/payout  
+
+执行上面的命令后，自动建立repositories库，查看/opt/svn/repositories（路径和库名可以根据自己的需要修改） 文件夹发现包含了conf,db,format,hooks,locks, README.txt等文件，说明一个SVN库建立完成。
+
+5、配置代码库
+
+
+
+# cd /opt/svn/repositories/conf  
+
+5.1 用户密码passwd配置
+
+# vi passwd  
+    ar=ar
+#vi authz
+[/]
+ar=rw
+# vi svnserve.conf
+
+anon-access = none 匿名权限
+auth-access = write  用户权限
+password-db = passwd 密码使用数据库路径
+authz-db = authz 访问控制文件
+
+启动：
+svnserve -d -r /opt/svn/payout
+
+# killall svnserve      #停止
+
+
+
+
+
+
+
+
+

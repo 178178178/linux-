@@ -1,0 +1,56 @@
+
+使用ps aux | grep tomcat查看tomcat进程是否启动
+
+
+redis启动：
+which redis
+
+cd usr/redis-4.0.0.11/src  ./redis-server /usr/etc/redis.conf
+
+
+Redis-cli 启动redis 客户端
+Pkill redis-server 关闭redis服务
+Redis-cli shutdown 关闭redis客户端
+Netstat -tunpl|grep 6379 查看redis 默认端口号6379占用情况
+
+
+[root@localhost bin]# whereis redis-cli
+redis-cli: /usr/bin/redis-cli
+
+[root@localhost bin]# whereis redis-server
+redis-server: /usr/bin/redis-server
+
+客户端：
+1：redis目录下src执行./redis-cli；
+2：auth +passworld
+ 
+
+flushall
+set 
+get
+del
+
+tail -f test.log
+
+find / -name nginx
+ 方法一：进入nginx可执行目录sbin下，输入命令./nginx -s reload 即可
+
+nginx -s stop
+启动nginx
+/usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf
+
+pkill -9 ngin
+
+https://ag.be9458.com/vi/
+
+dgengen258
+abc456
+删除文件夹下文件
+rm -rf *
+rm -rf *
+
+
+如果dir2目录不存在，则可以直接使用
+ cp -r dir1 dir2
+如果dir2目录已存在，则需要使用
+cp -r dir1/. dir2（如果这时使用cp -r dir1 dir2,则也会将dir1目录复制到dir2中）

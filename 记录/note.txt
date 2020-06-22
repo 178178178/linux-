@@ -1,0 +1,12 @@
+
+
+
+
+
+
+
+-----------------------测试后台-------------------
+
+SELECT n_accountid, fun_decryption(N_ACCOUNTPASS) from kfb_zhgl
+http://co6688.fg33888.com/login
+---------------------测试后台----------------------

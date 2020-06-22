@@ -1,0 +1,29 @@
+表空间：tablespace为表空间名;datafile为存放.dbf文件的路径，要提前设置好
+
+create tablespace struts2 datafile 'E:\oracle\dmp\struts2.dbf' size 500m
+
+用户：用户名struts2   密码 1  默认表空间名struts2
+
+create user struts2 identified by 1 default tablespace struts2 quota unlimited on struts2;
+
+给用户分配权限
+
+grant dba to struts2;
+
+分配系统权限
+
+grant unlimited tablespace to struts2;
+
+grant create session to struts2
+
+OK，现在可以用你自己设置的用户名/密码登陆了
+
+
+
+create user root identified by root default tablespace USERS 
+temporary tablespace TEMP;
+grant DBA to root;
+ALTER PROFILE DEFAULT LIMIT
+PASSWORD_LIFE_TIME UNLIMITED;
+
+imp root/root @payout file=c:/xq.dmp fromuser=root touser=root ignore=y

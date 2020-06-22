@@ -1,0 +1,15 @@
+1.下载：http://nginx.org/en/download.html Stable 稳定版本
+2.配置文件
+ upstream 192.168.3.136 {
+	server http://192.168.3.136:8080/pay/login;
+    }
+
+ server {
+        listen       80;
+        server_name  192.168.3.136;
+
+        location / {
+            proxy_pass  192.168.3.136;
+            index  index.html index.htm;
+        }
+    }

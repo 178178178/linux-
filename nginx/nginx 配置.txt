@@ -1,0 +1,23 @@
+    #PHP-INFO-START  PHP引用配置，可以注释或修改
+    #SECURITY-START 防盗链配置
+    location ~ .*\.(jpg|jpeg|gif|png|js|css)$
+    {
+        expires      30d;
+        access_log off;
+        valid_referers none blocked www.xtv999.com se.zzbdbz.com test.nahomeidia.com;
+        if ($invalid_referer){
+           return 404;
+        }
+    }
+
+图片配置
+server { 
+        listen       80;
+        server_name   www.zzbdbz.com img.nahomeidia.com;
+        location ~ /XResource/.*\.(jpg|jpeg|png)$  {
+				  root /www/wwwroot/www.xtv999.com/public;
+				  autoindex on;
+				  
+        		}
+   }
+

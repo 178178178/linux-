@@ -1,0 +1,60 @@
+1.先安装yasm 
+wget http://www.tortall.net/projects/yasm/releases/yasm-1.3.0.tar.gz
+ tar zxvf yasm-1.3.0.tar.gz
+ 进入：cd yasm-1.3.0
+ 执行：./configure
+ 再执行make && make install
+
+2.https://www.cnblogs.com/wintercloud/p/11162962.html
+
+
+1.官网下载linux版本的ffmpeg源码包 ffmpeg-4.1.tar.xz
+2.cd /usr/local/
+mkdir ffmpeg    #在usr/local目录下创建ffmpeg目录
+3.cd /usr/local/ffmpeg<br>tar xvJf ffmpeg-4.1.tar.xz
+
+4.切换到ffmpeg-4.1目录、安装gcc编译器
+cd ffmpeg-4.1
+
+
+5.输入如下命令/usr/local/ffmpeg为自己指定的安装目录
+./configure --enable-shared --prefix=/usr/local/ffmpeg
+
+6.执行make（非常非常久.......）
+make
+7.执行make install（安装）
+
+8.修改文件/etc/ld.so.conf
+vi /etc/ld.so.conf
+输入以下内容
+include ld.so.conf.d/*.conf
+/usr/local/ffmpeg/lib/
+输入ldconfig使修改生效。
+
+9.查看版本
+
+/usr/local/ffmpeg/ffmpeg-4.1/ffmpeg -version
+
+
+10.配置环境变量
+
+# vim /etc/profile
+在最后PATH添加环境变量：
+
+#set ffmpeg environment
+PATH=$PATH:/usr/local/ffmpeg/bin
+export PATH
+
+source /etc/profile #使配置生效
+
+11.查看环境变量是否配置成功
+ffmpeg -version
+
+
+
+2、安装/silk-v3-decoder
+cd /usr/local/
+wget https://github.com/kn007/silk-v3-decoder/archive/master.zip
+unzip master.zip
+chmod -R +x /usr/local/silk-v3-decoder/
+silk-v3-decoder/converter.sh 微信amr文章文件路径名 mp3

@@ -1,0 +1,2 @@
+执行/opt/zbox/zbox start 命令重启Apache和Mysql
+执行/opt/zbox/zbox restart 命令重启Apache和Mysql。

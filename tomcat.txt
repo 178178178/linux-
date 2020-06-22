@@ -1,0 +1,13 @@
+1.下载
+2.解压
+
+4.启动，如果启动不了
+
+编辑文件
+/usr/local/tomcat/bin/catalina.sh
+在第二行增加：
+export JAVA_HOME=/usr/local/jdk/jdk1.8.0_241
+
+5.不带项目名发布：
+
+在host 中增加：    <Context path="" docBase="myproject" reloadable="true" />

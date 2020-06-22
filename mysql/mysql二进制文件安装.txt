@@ -1,0 +1,73 @@
+安装前安装：yum install libncurses*
+1.解压：tar -xvf mysql-5.7.26-linux-glibc2.12-x86_64.tar 
+2.解压后重新命名为mysql
+3.移动到local 下：mv mysql-5.7.26-linux-glibc2.12-x86_64 /usr/local/mysql
+4. 新建用户组：
+groupadd mysql
+useradd -r -g mysql mysql
+5.创建数据目录并赋予权限
+mkdir -p  /data/mysql              #创建目录
+chown mysql:mysql -R /data/mysql   #赋予权限
+6.配置my.cnf  运行：vim /etc/my.cnf
+内容：
+[mysqld]
+bind-address=0.0.0.0
+port=3306
+user=mysql
+basedir=/usr/local/mysql
+datadir=/data/mysql
+socket=/tmp/mysql.sock
+log-error=/data/mysql/mysql.err
+pid-file=/data/mysql/mysql.pid
+#character config
+character_set_server=utf8mb4
+symbolic-links=0
+explicit_defaults_for_timestamp=true
+7.初始化数据库：
+进入mysql的bin目录：cd /usr/local/mysql/bin/
+初始化：./mysqld --defaults-file=/etc/my.cnf --basedir=/usr/local/mysql/ --datadir=/data/mysql/ --user=mysql --initialize
+8. 查看密码,在警告讯息后边
+cat /data/mysql/mysql.err 
+9.启动mysql，并更改root 密码
+a.先将mysql.server放置到/etc/init.d/mysql中
+cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysql
+b.增加mysql服务控制脚本执行权限
+ chmod +x /etc/rc.d/init.d/mysql
+c.将mysqld服务加入到系统服务,开机启动（在根目录下）
+chkconfig --add mysql
+d.检查mysqld服务是否已经生效
+chkconfig --list mysql
+10.启动mysql
+service mysql start
+11. ps -ef|grep mysql
+12.进入mysql 的bin目录执行
+./mysql -u root -p 
+输入密码：
+
+13.设置密码：
+SET PASSWORD = PASSWORD('root');
+ALTER USER 'root'@'localhost' PASSWORD EXPIRE NEVER;
+FLUSH PRIVILEGES;  
+exit;
+14.这时远程无法连接
+再次进入mysql: 执行12步
+15.这里主要执行下面三个命令(先登录数据库)
+use mysql                                            #访问mysql库
+update user set host = '%' where user = 'root';      #使root能再任何host访问
+FLUSH PRIVILEGES;                 
+
+16.重启
+17：
+firewall-cmd --permanent --zone=public --add-port=3306/tcp
+systemctl restart firewalld.service
+
+/etc/init.d/mysql restart
+
+
+18.https://blog.csdn.net/qq_37598011/article/details/93489404
+19.https://blog.csdn.net/qq_35868412/article/details/90440210
+
+
+
+
+

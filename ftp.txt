@@ -1,0 +1,10 @@
+yum -y install vsftpd
+
+默认安装目录：/etc/vsftpd
+
+useradd ftpadmin
+passwd ftpadmin
+
+12345678
+
+https://www.cnblogs.com/Wang352051443/p/9805980.html

@@ -1,0 +1,24 @@
+ps -ef | grep tomcat_jyg | grep -v grep | awk '{print $2}'  | sed -e "s/^/kill -9 /g" | sh - && rm -rf /usr/local/tomcat_jyg/webapps/* && cp -r /usr/local/update/* /usr/local/tomcat_jyg/webapps/ && /usr/local/tomcat_jyg/bin/startup.sh
+
+
+前台：
+ps -ef | grep tomcat_cash_web | grep -v grep | awk '{print $2}'  | sed -e "s/^/kill -9 /g" | sh - && rm -rf /usr/local/tomcat_cash_web/webapps/* && cp -r /usr/local/update/cashweb.war /usr/local/tomcat_cash_web/webapps/ && /usr/local/tomcat_cash_web/bin/startup.sh
+
+
+后台：
+ps -ef | grep tomcat_cash_bo | grep -v grep | awk '{print $2}'  | sed -e "s/^/kill -9 /g" | sh - && rm -rf /usr/local/tomcat_cash_bo/webapps/* && cp -r /usr/local/update/cash.war /usr/local/tomcat_cash_bo/webapps/ && /usr/local/tomcat_cash_bo/bin/startup.sh
+
+
+
+//测试站
+
+ps -ef | grep tomcat_test_cash_web | grep -v grep | awk '{print $2}'  | sed -e "s/^/kill -9 /g" | sh - && rm -rf /usr/local/tomcat_test_cash_web/webapps/* && cp -r /usr/local/tomcat_test_cash_web/update/cashweb.war /usr/local/tomcat_test_cash_web/webapps/ && /usr/local/tomcat_test_cash_web/bin/startup.sh
+
+
+
+正式站：unzip  -o cashweb.war -d cashweb
+
+从一个文件夹Copy到：
+cp -r dir1/. dir2
+
+cp -r 

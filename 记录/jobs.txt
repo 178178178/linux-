@@ -1,0 +1,18 @@
+select *
+  from v$sql_plan v
+ where v.operation = 'TABLE ACCESS'
+   and v.OPTIONS = 'FULL'
+
+
+
+
+declare 
+ job number;
+begin
+
+  sys.dbms_job.submit(job => job,
+                      what => 'TREASUREREPORTSUM;', 
+                      next_date => to_date('16-05-2019 17:42:34', 'dd-mm-yyyy hh24:mi:ss'),
+                      interval => 'sysdate+30/86400');
+  commit;    
+end;
